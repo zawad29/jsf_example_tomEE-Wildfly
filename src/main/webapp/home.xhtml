@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+    <h2>Messages</h2>
+    <h:form id="messageform">
+        <h:outputLabel for="msginput" value="Input Message" />
+        <h:inputText id="msginput" value="#{messageView.message.message}" />
+        <h:outputLabel  for="msginputdtl" value="Input Detail" />
+        <h:inputText id="msginputdtl" value="#{messageView.message.detail}" />
+        <h:commandButton value="Submit"
+                         action="#{messageView.submitMessage()}">
+        </h:commandButton>
+    </h:form>
+    <h:dataTable id="msgtable" value="#{messageView.messages}" var="message">
+        <h:column>#{message.id}</h:column>
+        <h:column>#{message.message}</h:column>
+        <h:column>#{message.detail}</h:column>
+    </h:dataTable>
+</f:view>
+</html>
