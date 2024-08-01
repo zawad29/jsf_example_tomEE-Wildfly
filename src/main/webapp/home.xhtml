@@ -4,23 +4,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:head>
+        <title>
+            hello tomEE
+        </title>
+    </h:head>
+    <h:body>
+        <h:outputText value="Hello, world !!!! "/>
+        <h:outputText value="Hello, world !!!! "/>
+        <h:outputText value="Hello, world !!!! "/>
     <h2>Messages</h2>
     <h:form id="messageform">
-        <h:outputLabel for="msginput" value="Input Message" />
-        <h:inputText id="msginput" value="#{messageView.message.message}" />
-        <h:outputLabel  for="msginputdtl" value="Input Detail" />
-        <h:inputText id="msginputdtl" value="#{messageView.message.detail}" />
-        <h:commandButton value="Submit"
+        <p:outputLabel for="msginput" value="Input Message" />
+        <p:inputText id="msginput" value="#{messageView.message.message}" />
+        <p:outputLabel  for="msginputdtl" value="Input Detail" />
+        <p:inputText id="msginputdtl" value="#{messageView.message.detail}" />
+        <p:commandButton value="Submit"
                          action="#{messageView.submitMessage()}">
-        </h:commandButton>
+        </p:commandButton>
     </h:form>
-    <h:dataTable id="msgtable" value="#{messageView.messages}" var="message">
-        <h:column>#{message.id}</h:column>
-        <h:column>#{message.message}</h:column>
-        <h:column>#{message.detail}</h:column>
-    </h:dataTable>
+    <p:dataTable id="msgtable" value="#{messageView.messages}" var="message" editable="true">
+        <p:column>#{message.id}</p:column>
+        <p:column>#{message.message}</p:column>
+        <p:column>#{message.detail}</p:column>
+    </p:dataTable>
+    </h:body>
 </f:view>
 </html>
